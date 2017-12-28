@@ -109,7 +109,7 @@ void addToQueue(char letter)
     nextColumnQueue.push("000000100");
     nextColumnQueue.push("000000100");
   }
-  if(letter = 'M')
+  if(letter == 'M')
   {
     nextColumnQueue.push(straightLine);
     nextColumnQueue.push("000100000");
@@ -145,6 +145,73 @@ void addToQueue(char letter)
     nextColumnQueue.push(oneTopOneMiddleOneBottom);
     nextColumnQueue.push("001001100");
     nextColumnQueue.push("000111100");
+  }
+  if(letter == 'R')
+  {
+    nextColumnQueue.push("000111100");
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("001011000");
+    nextColumnQueue.push("000100100");
+  }
+  if(letter == 'S')
+  {
+    nextColumnQueue.push("000110100");
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push("001001000");
+  }
+  if(letter == 'T')
+  {
+    nextColumnQueue.push("001000000");
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("001000000");
+  }
+  if(letter == 'U')
+  {
+    nextColumnQueue.push("001111000");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("001111000");
+  }
+  if(letter == 'V')
+  {
+    nextColumnQueue.push("001110000");
+    nextColumnQueue.push("000001000");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000001000");
+    nextColumnQueue.push("001110000");
+  }
+  if(letter == 'W')
+  {
+    nextColumnQueue.push("001111000");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000001000");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("001111000");
+  }
+  if(letter == 'X')
+  {
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push("000101000");
+    nextColumnQueue.push("000010000");
+    nextColumnQueue.push("000101000");
+    nextColumnQueue.push(oneTopOneBottom);
+  }
+  if(letter == 'Y')
+  {
+    nextColumnQueue.push("001000000");
+    nextColumnQueue.push("000100000");
+    nextColumnQueue.push("000011100");
+    nextColumnQueue.push("000100000");
+    nextColumnQueue.push("001000000");
+  }
+  if(letter == 'Z')
+  {
+    nextColumnQueue.push("001001100");
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push("001100100");
+    nextColumnQueue.push(oneTopOneBottom);
   }
 }
 
