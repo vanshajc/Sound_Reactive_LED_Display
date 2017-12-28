@@ -59,7 +59,6 @@ void addToQueue(char letter)
     nextColumnQueue.push(straightLine);
     nextColumnQueue.push(oneTopOneMiddleOneBottom);
     nextColumnQueue.push(oneTopOneMiddleOneBottom);
-    nextColumnQueue.push(oneTopOneMiddleOneBottom);
   }
   if(letter == 'F')
   {
@@ -70,7 +69,7 @@ void addToQueue(char letter)
   }
   if(letter == 'G')
   {
-    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000111000");
     nextColumnQueue.push(oneTopOneBottom);
     nextColumnQueue.push(oneTopOneMiddleOneBottom);
     nextColumnQueue.push("001011100");
@@ -103,6 +102,49 @@ void addToQueue(char letter)
     nextColumnQueue.push("000101000");
     nextColumnQueue.push(oneTopOneBottom);
   }
-    
+  if(letter == 'L')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000000100");
+  }
+  if(letter = 'M')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000100000");
+    nextColumnQueue.push("000010000");
+    nextColumnQueue.push("000100000");
+    nextColumnQueue.push(straightLine);
+  }
+  if(letter == 'N')
+  {
+    nextColumnQueue.push("000111100");
+    nextColumnQueue.push("001000000");
+    nextColumnQueue.push("001000000");
+    nextColumnQueue.push("000111100");
+  }
+  if(letter == 'O')
+  {
+    nextColumnQueue.push("000111000");
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push("000111000");
+  }
+  if(letter == 'P')
+  {
+    nextColumnQueue.push("000111100");
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("000100000");
+  }
+  if(letter == 'Q')
+  {
+    nextColumnQueue.push("000111000");
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push("001001100");
+    nextColumnQueue.push("000111100");
+  }
 }
 
