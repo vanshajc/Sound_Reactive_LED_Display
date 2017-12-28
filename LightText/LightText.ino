@@ -16,6 +16,7 @@
  QueueList<String> nextColumnQueue;
  String straightLine = "001111100";
  String oneTopOneBottom = "001000100";
+ String oneTopOneMiddleOneBottom = "001010100";
 
 
 // Which pin on the Arduino is connected to the NeoPixels?
@@ -42,6 +43,8 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 
 unsigned long st = 0;
 
+String w = "ABCDEFGHIJKLMNOPQ";
+
 String hello[4];
 void setup() {
  Serial.begin(9600);
@@ -55,16 +58,25 @@ void setup() {
 // grid[2][2] = newRipple(128, 0, 0, 0);
 // stepGrid();
 // lightGrid();
-  queueString("ABCD");
 }
  
  int cnt = 0;
 void loop() {
-  if (millis() - st > 500){
+  if (millis() - st > 200){
     lightGrid();
     stepGrid();
     if (!nextColumnQueue.isEmpty()){
     lightColumn(nextColumnQueue.pop());
+    }
+    else{
+      if (w.length() > 1){
+        queueString(w.substring(0, 1));
+        w = w.substring(1);
+      } else {
+        Serial.println("Hello?");
+        queueString(w);
+        w = "";
+      }
     }
     st = millis();
     cnt++;
@@ -77,8 +89,8 @@ void loop() {
 
 
 void lightColumn(String c){
-  Serial.print("Displaying: ");
-  Serial.println(c);
+  //Serial.print("Displaying: ");
+  //Serial.println(c);
   for (int i = 0; i < NUM_COLS; i++){
     Point p;
     p.r = 128*c.charAt(i); p.g = 0; p.b = 0;
@@ -101,7 +113,7 @@ void queueString(String s){
 
 void addToQueue(char letter)
 {
-  Serial.print("looking up: ");
+  //Serial.print("looking up: ");
   Serial.println(letter);
   if(letter=='A')
   {
@@ -119,7 +131,7 @@ void addToQueue(char letter)
   }
   if(letter == 'C')
   {
-    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000111000");
     nextColumnQueue.push(oneTopOneBottom);
     nextColumnQueue.push(oneTopOneBottom);
     nextColumnQueue.push(oneTopOneBottom);
@@ -131,6 +143,100 @@ void addToQueue(char letter)
     nextColumnQueue.push(oneTopOneBottom);
     nextColumnQueue.push("000111000");
   }
+  if(letter == 'E')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+  }
+  if(letter == 'F')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("001000000");
+  }
+  if(letter == 'G')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push("001011100");
+  }
+  if(letter == 'H')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000010000");
+    nextColumnQueue.push("000010000");
+    nextColumnQueue.push(straightLine);
+  }
+  if(letter == 'I')
+  {
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push(oneTopOneBottom);
+  }
+  if(letter == 'J')
+  {
+    nextColumnQueue.push("001001100");
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("001000000");
+  }
+  if(letter == 'K')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000010000");
+    nextColumnQueue.push("000101000");
+    nextColumnQueue.push(oneTopOneBottom);
+  }
+  if(letter == 'L')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000000100");
+    nextColumnQueue.push("000000100");
+  }
+  if(letter = 'M')
+  {
+    nextColumnQueue.push(straightLine);
+    nextColumnQueue.push("000100000");
+    nextColumnQueue.push("000010000");
+    nextColumnQueue.push("000100000");
+    nextColumnQueue.push(straightLine);
+  }
+  if(letter == 'N')
+  {
+    nextColumnQueue.push("000111100");
+    nextColumnQueue.push("001000000");
+    nextColumnQueue.push("001000000");
+    nextColumnQueue.push("000111100");
+  }
+  if(letter == 'O')
+  {
+    nextColumnQueue.push("000111000");
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push("000111000");
+  }
+  if(letter == 'P')
+  {
+    nextColumnQueue.push("000111100");
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("001010000");
+    nextColumnQueue.push("000100000");
+  }
+  if(letter == 'Q')
+  {
+    nextColumnQueue.push("000111000");
+    nextColumnQueue.push(oneTopOneBottom);
+    nextColumnQueue.push(oneTopOneMiddleOneBottom);
+    nextColumnQueue.push("001001100");
+    nextColumnQueue.push("000111100");
+  }
+  Serial.println("Adding blank");
   nextColumnQueue.push("000000000");
 }
 
